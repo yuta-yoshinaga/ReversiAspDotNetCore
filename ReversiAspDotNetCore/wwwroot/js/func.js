@@ -27,8 +27,8 @@ $(document).ready(function() {
     function setSetting(reversiSetting) {
 		var requestObj = $.stringify(reversiSetting);
         $.ajax({
-            url: "./FrontController",
-            type: 'POST',
+            url: "./Reversi/setSetting/",
+            type: 'GET',
             data: {
                 func: "setSetting",
                 para: requestObj,
@@ -53,8 +53,8 @@ $(document).ready(function() {
 
     function reset() {
         $.ajax({
-            url: "./FrontController",
-            type: 'POST',
+            url: "./Reversi/reset/",
+            type: 'GET',
             data: {
                 func: "reset",
             },
@@ -78,8 +78,8 @@ $(document).ready(function() {
 
     function reversiPlay(y, x) {
         $.ajax({
-            url: "./FrontController",
-            type: 'POST',
+            url: "./Reversi/reversiPlay/",
+            type: 'GET',
             data: {
                 func: "reversiPlay",
                 y: y,
@@ -130,9 +130,9 @@ $(document).ready(function() {
         });
     });
     //storage.clear();
-    var lReversiSetting = storage.getItem('appSetting2');
+    var lReversiSetting = storage.getItem('appSetting-aspdotnetcore');
     if (lReversiSetting != null) reversiSetting = JSON.parse(lReversiSetting);
-    else storage.setItem('appSetting2', JSON.stringify(reversiSetting));
+    else storage.setItem('appSetting-aspdotnetcore', JSON.stringify(reversiSetting));
     if (reversiSetting.mPlayerColor1 === undefined) reversiSetting.mPlayerColor1 = '#000000';
     if (reversiSetting.mPlayerColor2 === undefined) reversiSetting.mPlayerColor2 = '#ffffff';
     if (reversiSetting.mPlayerColor3 === undefined) reversiSetting.mPlayerColor3 = '#0000ff';

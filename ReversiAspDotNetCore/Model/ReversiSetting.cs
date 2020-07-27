@@ -20,6 +20,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using Microsoft.AspNetCore.Mvc;
 
 namespace ReversiAspDotNetCore
 {
@@ -28,6 +29,7 @@ namespace ReversiAspDotNetCore
 	///	@brief		アプリ設定クラス
 	///
 	////////////////////////////////////////////////////////////////////////////////
+	[BindProperties(SupportsGet = true)]
 	public class ReversiSetting
 	{
 		#region メンバ変数

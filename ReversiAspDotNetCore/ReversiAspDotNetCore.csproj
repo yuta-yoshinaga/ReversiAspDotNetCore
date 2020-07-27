@@ -6,4 +6,7 @@
     <UserSecretsId>6240f383-05ca-4ff2-87b7-4ed8eef91472</UserSecretsId>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Json.Net" Version="1.0.23" />
+  </ItemGroup>
 </Project>
