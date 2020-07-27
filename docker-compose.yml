@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  reversiaspdotnetcore:
+    image: ${DOCKER_REGISTRY-}reversiaspdotnetcore
+    build:
+      context: .
+      dockerfile: ReversiAspDotNetCore/Dockerfile
