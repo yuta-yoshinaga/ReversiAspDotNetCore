@@ -15,7 +15,7 @@ WORKDIR /src
 COPY ["ReversiAspDotNetCore/ReversiAspDotNetCore.csproj", "ReversiAspDotNetCore/"]
 RUN dotnet restore "ReversiAspDotNetCore/ReversiAspDotNetCore.csproj"
 WORKDIR "/src/ReversiAspDotNetCore"
-COPY . .
+COPY ReversiAspDotNetCore .
 #-- For heroku-container modification -- END
 RUN dotnet build "ReversiAspDotNetCore.csproj" -c Release -o /app/build
 
