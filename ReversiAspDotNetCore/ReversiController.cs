@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Text.Json;
+using Newtonsoft.Json;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,12 +11,12 @@ namespace ReversiAspDotNetCore
     {
         public static void Set<T>(this ISession session, string key, T value)
         {
-            session.SetString(key, JsonSerializer.Serialize(value));
+            session.SetString(key, Newtonsoft.Json.JsonConvert.SerializeObject(value));
         }
         public static T Get<T>(this ISession session, string key)
         {
             var value = session.GetString(key);
-            return value == null ? default(T) : JsonSerializer.Deserialize<T>(value);
+            return value == null ? default(T) : JsonConvert.DeserializeObject<T>(value);
         }
     }
 
@@ -49,29 +49,29 @@ namespace ReversiAspDotNetCore
             resJson.auth = "[SUCCESS]";
             resJson.callbacks = rvPlay.mCallbacks;
             HttpContext.Session.Set<ReversiPlay>(SessionKey, rvPlay);
-            return JsonSerializer.Serialize(resJson);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(resJson);
         }
 
-        public ActionResult<string> setSetting(string func,ReversiSetting para)
+        public IActionResult setSetting([FromQuery(Name = "func")] string func, [FromQuery(Name = "para")] ReversiSetting para)
         {
             ReversiPlay rvPlay = this.getReversiPlay();
             rvPlay.mSetting = para;
             rvPlay.reset();
-            return this.getResJson(rvPlay);
+            return Content(this.getResJson(rvPlay), "application/json");
         }
 
-        public ActionResult<string> reset(string func)
+        public IActionResult reset([FromQuery(Name = "func")] string func)
         {
             ReversiPlay rvPlay = this.getReversiPlay();
             rvPlay.reset();
-            return this.getResJson(rvPlay);
+            return Content(this.getResJson(rvPlay), "application/json");
         }
 
-        public ActionResult<string> reversiPlay(string func, int y, int x)
+        public IActionResult reversiPlay([FromQuery(Name = "func")] string func, [FromQuery(Name = "y")] int y, [FromQuery(Name = "x")] int x)
         {
             ReversiPlay rvPlay = this.getReversiPlay();
             rvPlay.reversiPlay(y,x);
-            return this.getResJson(rvPlay);
+            return Content(this.getResJson(rvPlay), "application/json");
         }
 
         ////////////////////////////////////////////////////////////////////////////////

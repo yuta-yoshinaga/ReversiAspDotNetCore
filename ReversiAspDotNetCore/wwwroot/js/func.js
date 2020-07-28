@@ -203,7 +203,7 @@ $(document).ready(function() {
         reversiSetting.mBackGroundColor = $('#mBackGroundColor input').val();
         reversiSetting.mBorderColor = $('#mBorderColor input').val();
 
-        storage.setItem('appSetting2', JSON.stringify(reversiSetting));
+        storage.setItem('appSetting-aspdotnetcore', JSON.stringify(reversiSetting));
         appInit();
         setSetting(reversiSetting);
         reset();

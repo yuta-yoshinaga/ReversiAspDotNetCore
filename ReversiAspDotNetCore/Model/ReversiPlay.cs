@@ -19,6 +19,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Newtonsoft.Json;
 
 namespace ReversiAspDotNetCore
 {
@@ -51,7 +52,8 @@ namespace ReversiAspDotNetCore
 		private DrawSingle _drawSingle = null;					//!< 描画コールバック
 		private CurColMsg _curColMsg = null;					//!< 現在の色メッセージコールバック
 		private CurStsMsg _curStsMsg = null;					//!< 現在のステータスメッセージコールバック
-		private Wait _wait = null;								//!< ウェイトコールバック
+		private Wait _wait = null;                              //!< ウェイトコールバック
+		[JsonIgnore]
 		private System.Random r = new System.Random();			//!< 乱数
 		private CallbacksJson _mCallbacks = null;				//!< コールバック
 		#endregion
@@ -102,31 +104,37 @@ namespace ReversiAspDotNetCore
 			get { return _mPlayLock; }
 			set { _mPlayLock = value; }
 		}
+		[JsonIgnore]
 		public CallbacksJson mCallbacks
 		{
 			get { return _mCallbacks; }
 			set { _mCallbacks = value; }
 		}
+		[JsonIgnore]
 		public ViewMsgDlg viewMsgDlg
 		{
 			get { return _viewMsgDlg; }
 			set { _viewMsgDlg = value; }
 		}
+		[JsonIgnore]
 		public DrawSingle drawSingle
 		{
 			get { return _drawSingle; }
 			set { _drawSingle = value; }
 		}
+		[JsonIgnore]
 		public CurColMsg curColMsg
 		{
 			get { return _curColMsg; }
 			set { _curColMsg = value; }
 		}
+		[JsonIgnore]
 		public CurStsMsg curStsMsg
 		{
 			get { return _curStsMsg; }
 			set { _curStsMsg = value; }
 		}
+		[JsonIgnore]
 		public Wait wait
 		{
 			get { return _wait; }

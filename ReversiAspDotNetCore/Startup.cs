@@ -45,7 +45,8 @@ namespace ReversiAspDotNetCore
             app.UseSession();
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllerRoute("route1", "{controller}/{action}/{query}");
+                //endpoints.MapControllerRoute("route1", "{controller}/{action}/{query}");
+                endpoints.MapControllerRoute("route1", "{controller}/{action}/");
             });
         }
     }
