@@ -12,7 +12,7 @@ WORKDIR /src
 #RUN dotnet restore "ReversiAspDotNetCore/ReversiAspDotNetCore.csproj"
 #COPY . .
 #WORKDIR "/src/ReversiAspDotNetCore"
-COPY ["ReversiAspDotNetCore.csproj", "ReversiAspDotNetCore/"]
+COPY ["ReversiAspDotNetCore/ReversiAspDotNetCore.csproj", "ReversiAspDotNetCore/"]
 RUN dotnet restore "ReversiAspDotNetCore/ReversiAspDotNetCore.csproj"
 WORKDIR "/src/ReversiAspDotNetCore"
 COPY . .
