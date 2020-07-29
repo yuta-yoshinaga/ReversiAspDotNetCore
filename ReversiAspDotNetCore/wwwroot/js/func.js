@@ -206,7 +206,7 @@ $(document).ready(function() {
         storage.setItem('appSetting-aspdotnetcore', JSON.stringify(reversiSetting));
         appInit();
         setSetting(reversiSetting);
-        reset();
+        //reset();
         console.log(reversiSetting);
     });
     $('#appMenuModal').on('click', '.btn-warning', function() {

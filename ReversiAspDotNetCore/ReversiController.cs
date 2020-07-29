@@ -52,10 +52,10 @@ namespace ReversiAspDotNetCore
             return Newtonsoft.Json.JsonConvert.SerializeObject(resJson);
         }
 
-        public IActionResult setSetting([FromQuery(Name = "func")] string func, [FromQuery(Name = "para")] ReversiSetting para)
+        public IActionResult setSetting([FromQuery(Name = "func")] string func, [FromQuery(Name = "para")] string para)
         {
             ReversiPlay rvPlay = this.getReversiPlay();
-            rvPlay.mSetting = para;
+            rvPlay.mSetting = JsonConvert.DeserializeObject<ReversiSetting>(para);
             rvPlay.reset();
             return Content(this.getResJson(rvPlay), "application/json");
         }
