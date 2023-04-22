@@ -14,8 +14,8 @@ cd reversiaspdotnetcore
 ```
 
 ### Deploy
-![herokubutton](https://www.herokucdn.com/deploy/button.svg)  
-[Heroku](https://reversiaspdotnetcore.herokuapp.com/)
+[render live](https://reversiaspdotnetcore.onrender.com/)
+[render dev](https://reversiaspdotnetcore-dev.onrender.com/)
 
 ## Future Releases
 TensorFlowを使って、AIの更新がしたい。
